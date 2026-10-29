@@ -1,16 +1,18 @@
-def caching_febonacci():
-    chache = {}
+def caching_fibonacci():
+    cache = {}
 
-    def febonacci(n):
+    def fibonacci(n):
         if n <= 0:
             return 0
         if n == 1:
             return 1
         if n in cache:
-            return cahce[n]
-    return febonacci()
+            return cache[n]
+        cache[n] = fibonacci(n - 1) + fibonacci(n - 2)
+        return cache[n]
+    return fibonacci
 
-fib = caching_febonacci()
+fib = caching_fibonacci()
 
-print(fib(10))
-print(fib(15))
+print(fib(10))  # Виведе 55
+print(fib(15))  # Виведе 610
